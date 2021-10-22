@@ -10,25 +10,25 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/users', (req, res) => {
   console.log(readUsers(req.body));
-   res.send(200)
+  res.send(200);
 });
 
 app.post('/user/new', (req, res) => {
   if (!req.body) return res.sendStatus(400);
-  writeUser(req.body)
+  console.log(writeUser(req.body));
   res.send(201)
 });
  
 app.patch('/user/:userId', (req, res) => {
   let userId = parseInt(req.params.userId);
   if (!userId) return res.sendStatus(404);
-  editUser(userId, req.body);
+  console.log(editUser(userId, req.body));
   res.send(201);
 });
  
 app.delete('/user/:userId', (req, res) => {
   const userId = parseInt(req.params.userId);
-  deleteUser(userId)
+  console.log(deleteUser(userId));
    res.send(204);
 });
  
